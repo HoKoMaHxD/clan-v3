@@ -1,0 +1,33 @@
+services:
+  - type: worker
+    name: clan-quests-bot
+    runtime: node
+    plan: starter
+    numInstances: 1
+    buildCommand: npm ci --omit=dev
+    startCommand: npm start
+    envVars:
+      - key: NODE_VERSION
+        value: 22.22.0
+      - key: DISCORD_BOT_TOKEN
+        sync: false
+      - key: ARENA_USER_TOKEN
+        sync: false
+      - key: ACKNOWLEDGE_SELFBOT_RISK
+        sync: false
+      - key: OBSERVER_MODE
+        value: selfbot
+      - key: MONGODB_URI
+        sync: false
+      - key: MONGODB_DB
+        value: clan_quests
+      - key: CLAN_GUILD_ID
+        sync: false
+      - key: ARENA_GUILD_ID
+        sync: false
+      - key: GENERAL_CHANNEL_ID
+        sync: false
+      - key: CLAN_VOICE_CHANNEL_ID
+        sync: false
+      - key: CLAN_MEMBER_ROLE_ID
+        sync: false
